@@ -1,0 +1,55 @@
+Answers and Explanations OS Assignment 2
+
+1) process_creation.c
+   - Demonstrates process creation using fork().
+   - fork() creates a duplicate process. The return value is:
+       * 0 in the child process
+       * >0 in the parent (the child's PID)
+       * <0 on failure
+   - The program prints whether it is the child or parent and shows the PID with getpid().
+
+2) Background process / stopping / resuming (lab commands)
+   - These are shell commands demonstrated in the lab (not separate C programs).
+   - Start a background process:
+       sleep 300 &
+   - List jobs:
+       jobs
+   - Find process ID:
+       ps aux | grep sleep
+   - Stop a process:
+       kill <PID>
+   - Pause a process:
+       kill -STOP <PID>
+   - Resume a process:
+       kill -CONT <PID>
+
+3) file1.c and file2.c (Linker example)
+   - file1.c defines a function `hello()` which prints a message.
+   - file2.c declares `hello()` and calls it from main().
+   - Compiling both files together causes the linker to combine the object code so that references to `hello` are resolved.
+   - Compile with:
+       gcc file1.c file2.c -o output_program
+   - Run with:
+       ./output_program
+
+4) simple_program.c (Loader / ldd example)
+   - A simple C program that prints a line.
+   - Compile with:
+       gcc simple_program.c -o simple_program
+   - Use ldd to see dynamic libraries:
+       ldd simple_program
+   - The loader is responsible for loading the program into memory and mapping shared libraries at runtime. `ldd` shows which shared libraries are dynamically linked.
+
+5) Makefile (provided with the project)
+   - Builds the programs:
+       make all
+   - Cleans the build:
+       make clean
+
+6) License
+   - MIT License file is included (LICENSE).
+
+7) README.md
+   - A project README based on common templates (title, description, build/run, license, contact).
+
+This file and the source files reproduce Lab 5 examples exactly as in the lab document.
